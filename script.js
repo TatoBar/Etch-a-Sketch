@@ -21,9 +21,16 @@ const generateGrid = (size) => {
     squares.forEach(square => {
         square.style.width = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
-    square.addEventListener("mouseover", () => {
-        square.style.backgroundColor = generateRandomHexColor();
-    });
+        
+        square.addEventListener("mousedown", (e) => {
+            square.style.backgroundColor = generateRandomHexColor();
+        });
+
+        square.addEventListener("mouseover", (e) => {
+            if(e.buttons === 1){
+                square.style.backgroundColor = generateRandomHexColor();
+            }
+        });
 });
 }
 
